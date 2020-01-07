@@ -1,0 +1,3 @@
+/NOBACKUP/sqa7/NFSTest/build-ast320/build-toolchain/linux/nds32le-linux-glibc-v5/bin/../lib/gcc/riscv32-linux/7.3.0/../../../../riscv32-linux/bin/ld: 
+Warning: Init __global_pointer$ failed. Can not find __global_pointer$ and .sdata section.
+

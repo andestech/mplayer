@@ -1,0 +1,19 @@
+make  install-recursive
+make[1]: Entering directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[2]: Entering directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[3]: Entering directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+mkdir -p -- . /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib
+ /bin/sh ./libtool --mode=install /usr/bin/install -c  libmad.la /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.la
+/usr/bin/install -c .libs/libmad.so.0.2.1 /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.so.0.2.1
+(cd /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib && rm -f libmad.so.0 && ln -s libmad.so.0.2.1 libmad.so.0)
+(cd /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib && rm -f libmad.so && ln -s libmad.so.0.2.1 libmad.so)
+/usr/bin/install -c .libs/libmad.lai /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.la
+/usr/bin/install -c .libs/libmad.a /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.a
+riscv32-linux-ranlib /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.a
+chmod 644 /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib/libmad.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib'
+mkdir -p -- . /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include
+ /usr/bin/install -c -m 644 mad.h /local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include/mad.h
+make[3]: Leaving directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[2]: Leaving directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[1]: Leaving directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'

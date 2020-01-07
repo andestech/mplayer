@@ -1,0 +1,10 @@
+*.o
+*.a
+codec-cfg
+codecs.conf.h
+config.h
+config.mak
+configure.log
+help_mp.h
+mplayer
+version.h

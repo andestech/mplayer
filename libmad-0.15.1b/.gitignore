@@ -1,0 +1,15 @@
+*.o
+*.lo
+.deps/
+.libs/
+Makefile
+\[config.h\].in
+config.h
+config.log
+config.status
+libmad.la
+libmad.list
+libtool
+mad.h
+msvc++/Makefile
+stamp-h1

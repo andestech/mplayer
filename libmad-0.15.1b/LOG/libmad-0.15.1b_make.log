@@ -1,0 +1,79 @@
+(sed -e '1s|.*|/*|' -e '1b' -e '$s|.*| */|' -e '$b'  \
+	-e 's/^.*/ *&/' ./COPYRIGHT; echo;  \
+echo "# ifdef __cplusplus";  \
+echo 'extern "C" {';  \
+echo "# endif"; echo;  \
+if [ ".-DFPM_DEFAULT" != "." ]; then  \
+	echo ".-DFPM_DEFAULT" | sed -e 's|^\.-D|# define |'; echo;  \
+fi;  \
+sed -ne 's/^# *define  *\(HAVE_.*_ASM\).*/# define \1/p'  \
+	config.h; echo;  \
+sed -ne 's/^# *define  *OPT_\(SPEED\|ACCURACY\).*/# define OPT_\1/p'  \
+	config.h; echo;  \
+sed -ne 's/^# *define  *\(SIZEOF_.*\)/# define \1/p'  \
+	config.h; echo;  \
+for header in version.h fixed.h bit.h timer.h stream.h frame.h synth.h decoder.h; do  \
+	echo;  \
+	sed -n -f ./mad.h.sed ./$header;  \
+done; echo;  \
+echo "# ifdef __cplusplus";  \
+echo '}';  \
+echo "# endif") >mad.h
+make  all-recursive
+make[1]: Entering directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[2]: Entering directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT version.lo -MD -MP -MF ".deps/version.Tpo" -c -o version.lo version.c; \
+then mv -f ".deps/version.Tpo" ".deps/version.Plo"; else rm -f ".deps/version.Tpo"; exit 1; fi
+mkdir .libs
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c  -fPIC -DPIC -o .libs/version.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c -o version.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT fixed.lo -MD -MP -MF ".deps/fixed.Tpo" -c -o fixed.lo fixed.c; \
+then mv -f ".deps/fixed.Tpo" ".deps/fixed.Plo"; else rm -f ".deps/fixed.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT fixed.lo -MD -MP -MF .deps/fixed.Tpo -c fixed.c  -fPIC -DPIC -o .libs/fixed.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT fixed.lo -MD -MP -MF .deps/fixed.Tpo -c fixed.c -o fixed.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT bit.lo -MD -MP -MF ".deps/bit.Tpo" -c -o bit.lo bit.c; \
+then mv -f ".deps/bit.Tpo" ".deps/bit.Plo"; else rm -f ".deps/bit.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT bit.lo -MD -MP -MF .deps/bit.Tpo -c bit.c  -fPIC -DPIC -o .libs/bit.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT bit.lo -MD -MP -MF .deps/bit.Tpo -c bit.c -o bit.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT timer.lo -MD -MP -MF ".deps/timer.Tpo" -c -o timer.lo timer.c; \
+then mv -f ".deps/timer.Tpo" ".deps/timer.Plo"; else rm -f ".deps/timer.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT timer.lo -MD -MP -MF .deps/timer.Tpo -c timer.c  -fPIC -DPIC -o .libs/timer.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT timer.lo -MD -MP -MF .deps/timer.Tpo -c timer.c -o timer.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT stream.lo -MD -MP -MF ".deps/stream.Tpo" -c -o stream.lo stream.c; \
+then mv -f ".deps/stream.Tpo" ".deps/stream.Plo"; else rm -f ".deps/stream.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT stream.lo -MD -MP -MF .deps/stream.Tpo -c stream.c  -fPIC -DPIC -o .libs/stream.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT stream.lo -MD -MP -MF .deps/stream.Tpo -c stream.c -o stream.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT frame.lo -MD -MP -MF ".deps/frame.Tpo" -c -o frame.lo frame.c; \
+then mv -f ".deps/frame.Tpo" ".deps/frame.Plo"; else rm -f ".deps/frame.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT frame.lo -MD -MP -MF .deps/frame.Tpo -c frame.c  -fPIC -DPIC -o .libs/frame.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT frame.lo -MD -MP -MF .deps/frame.Tpo -c frame.c -o frame.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT synth.lo -MD -MP -MF ".deps/synth.Tpo" -c -o synth.lo synth.c; \
+then mv -f ".deps/synth.Tpo" ".deps/synth.Plo"; else rm -f ".deps/synth.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT synth.lo -MD -MP -MF .deps/synth.Tpo -c synth.c  -fPIC -DPIC -o .libs/synth.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT synth.lo -MD -MP -MF .deps/synth.Tpo -c synth.c -o synth.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT decoder.lo -MD -MP -MF ".deps/decoder.Tpo" -c -o decoder.lo decoder.c; \
+then mv -f ".deps/decoder.Tpo" ".deps/decoder.Plo"; else rm -f ".deps/decoder.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT decoder.lo -MD -MP -MF .deps/decoder.Tpo -c decoder.c  -fPIC -DPIC -o .libs/decoder.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT decoder.lo -MD -MP -MF .deps/decoder.Tpo -c decoder.c -o decoder.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT layer12.lo -MD -MP -MF ".deps/layer12.Tpo" -c -o layer12.lo layer12.c; \
+then mv -f ".deps/layer12.Tpo" ".deps/layer12.Plo"; else rm -f ".deps/layer12.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT layer12.lo -MD -MP -MF .deps/layer12.Tpo -c layer12.c  -fPIC -DPIC -o .libs/layer12.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT layer12.lo -MD -MP -MF .deps/layer12.Tpo -c layer12.c -o layer12.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT layer3.lo -MD -MP -MF ".deps/layer3.Tpo" -c -o layer3.lo layer3.c; \
+then mv -f ".deps/layer3.Tpo" ".deps/layer3.Plo"; else rm -f ".deps/layer3.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT layer3.lo -MD -MP -MF .deps/layer3.Tpo -c layer3.c  -fPIC -DPIC -o .libs/layer3.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT layer3.lo -MD -MP -MF .deps/layer3.Tpo -c layer3.c -o layer3.o >/dev/null 2>&1
+if /bin/sh ./libtool --mode=compile riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT     -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer -MT huffman.lo -MD -MP -MF ".deps/huffman.Tpo" -c -o huffman.lo huffman.c; \
+then mv -f ".deps/huffman.Tpo" ".deps/huffman.Plo"; else rm -f ".deps/huffman.Tpo"; exit 1; fi
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT huffman.lo -MD -MP -MF .deps/huffman.Tpo -c huffman.c  -fPIC -DPIC -o .libs/huffman.o
+ riscv32-linux-gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include -O3 -funroll-loops -fomit-frame-pointer -MT huffman.lo -MD -MP -MF .deps/huffman.Tpo -c huffman.c -o huffman.o >/dev/null 2>&1
+/bin/sh ./libtool --mode=link riscv32-linux-gcc  -Wall -I/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/include  -O3 -funroll-loops -fomit-frame-pointer  -L/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib -o libmad.la -rpath /usr/lib -version-info 2:1:2 version.lo fixed.lo bit.lo timer.lo stream.lo frame.lo synth.lo decoder.lo layer12.lo layer3.lo huffman.lo    
+riscv32-linux-gcc -shared  .libs/version.o .libs/fixed.o .libs/bit.o .libs/timer.o .libs/stream.o .libs/frame.o .libs/synth.o .libs/decoder.o .libs/layer12.o .libs/layer3.o .libs/huffman.o  -L/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b/RISCV32/usr/lib  -Wl,-soname -Wl,libmad.so.0 -o .libs/libmad.so.0.2.1
+(cd .libs && rm -f libmad.so.0 && ln -s libmad.so.0.2.1 libmad.so.0)
+(cd .libs && rm -f libmad.so && ln -s libmad.so.0.2.1 libmad.so)
+riscv32-linux-ar cru .libs/libmad.a  version.o fixed.o bit.o timer.o stream.o frame.o synth.o decoder.o layer12.o layer3.o huffman.o
+riscv32-linux-ranlib .libs/libmad.a
+creating libmad.la
+(cd .libs && rm -f libmad.la && ln -s ../libmad.la libmad.la)
+make[2]: Leaving directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
+make[1]: Leaving directory '/local/tesheng/mplayer/mplayer_mentor/mplayerV5/libmad-0.15.1b'
