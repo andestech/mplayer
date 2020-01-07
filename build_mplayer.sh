@@ -42,6 +42,15 @@ if [ ! -d $LOG_DIR  ]; then
 	mkdir -p $LOG_DIR
 fi
 
+if [  ${CROSS_COMPILE} = "riscv64-linux-"  ]; then
+	mkdir -p ${WORKDIR}/RISCV64
+elif [  ${CROSS_COMPILE} = "riscv32-linux-"  ]; then
+	mkdir -p ${WORKDIR}/RISCV32
+else
+	echo " CROSS_COMPILE args not set !!"
+	exit 1
+fi
+
 LIBMAD_SOURCE=libmad-0.15.1b
 MPLAYER_SOURCE=MPlayer-1.0rc2
 
