@@ -4,7 +4,6 @@
 WORKDIR=`pwd`
 #export DEPLOY_DIR=${WORKDIR}/RISCV64
 #export DEPLOY_DIR=${WORKDIR}/RISCV32
-export DEPLOY_DIR=${WORKDIR}/${INSTALL_DIR}
 export LOG_DIR=${WORKDIR}/LOG
 DEMO=${WORKDIR}/demo_mplayer
 
@@ -32,10 +31,6 @@ export RANLIB=${CROSS_COMPILE}ranlib
 export LD=${CROSS_COMPILE}ld
 export STRIP=${CROSS_COMPILE}strip
 
-export CFLAGS="${OPTFLAGS} -I${DEPLOY_DIR}/usr/include"
-#export LDFLAGS="-L${DEPLOY_DIR}/usr/lib"
-export LDFLAGS="-static -L${DEPLOY_DIR}/usr/lib"
-
 # Creat log folder if needs
 if [ ! -d $LOG_DIR  ]; then
 	echo "$LOG_DIR does not exist, now created."
@@ -44,12 +39,19 @@ fi
 
 if [  ${CROSS_COMPILE} = "riscv64-linux-"  ]; then
 	mkdir -p ${WORKDIR}/RISCV64
+	export	DEPLOY_DIR=${WORKDIR}/RISCV64
 elif [  ${CROSS_COMPILE} = "riscv32-linux-"  ]; then
 	mkdir -p ${WORKDIR}/RISCV32
+	export DEPLOY_DIR=${WORKDIR}/RISCV32
 else
 	echo " CROSS_COMPILE args not set !!"
 	exit 1
 fi
+
+export CFLAGS="${OPTFLAGS} -I${DEPLOY_DIR}/usr/include"
+#export LDFLAGS="-L${DEPLOY_DIR}/usr/lib"
+export LDFLAGS="-static -L${DEPLOY_DIR}/usr/lib"
+
 
 LIBMAD_SOURCE=libmad-0.15.1b
 MPLAYER_SOURCE=MPlayer-1.0rc2
