@@ -48,9 +48,22 @@ else
 	exit 1
 fi
 
-export CFLAGS="${OPTFLAGS} -I${DEPLOY_DIR}/usr/include"
+# Check -march args
+if [ ${MARCH} = "rv32v5" ];then
+	export MARCH=rv32v5
+elif [ ${MARCH} = "rv32v5d" ];then
+	export MARCH=rv32v5d
+elif [ ${MARCH} = "rv64v5" ];then
+	export MARCH=rv64v5
+elif [ ${MARCH} = "rv64v5d" ];then
+	export MARCH=rv64v5d
+else
+	echo " -march=rvXXv5X args not set !!"
+fi
+
+export CFLAGS="${OPTFLAGS} -I${DEPLOY_DIR}/usr/include -march=${MARCH}"
 #export LDFLAGS="-L${DEPLOY_DIR}/usr/lib"
-export LDFLAGS="-static -L${DEPLOY_DIR}/usr/lib"
+export LDFLAGS="-static -L${DEPLOY_DIR}/usr/lib -march=${MARCH}"
 
 
 LIBMAD_SOURCE=libmad-0.15.1b
@@ -67,8 +80,6 @@ if test -f Makefile; then
     make distclean &> /dev/null
 fi
 
-CFLAGS="${OPTFLAGS} -I${DEPLOY_DIR}/usr/include" \
-LDFLAGS="-L${DEPLOY_DIR}/usr/lib" \
 ./configure --host=$HOST --build=$BUILD --prefix=/usr --disable-debugging --enable-shared -enable-static
 
 make all 2> ${LOG_DIR}/${LIBMAD_SOURCE}_error.log| tee ${LOG_DIR}/${LIBMAD_SOURCE}_make.log
